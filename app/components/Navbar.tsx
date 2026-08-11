@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 
 const LINKS = [
   { href: "#projects", label: "Projects" },
+  { href: "#services", label: "Services" },
   { href: "#about", label: "About" },
   { href: "#skills", label: "Skills" },
-  { href: "#journey", label: "Journey" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -46,7 +46,7 @@ export default function Navbar() {
       </div>
       <a
         href="#contact"
-        className="hidden md:inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-white text-black font-code text-xs uppercase tracking-widest font-semibold hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] transition-all duration-300"
+        className="hidden md:inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-white text-black font-code text-xs uppercase tracking-widest font-semibold hover:shadow-[0_0_20px_rgba(252,255,212,0.35)] transition-all duration-300"
       >
         Let&apos;s Talk
       </a>

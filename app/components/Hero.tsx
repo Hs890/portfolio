@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function Hero() {
@@ -62,7 +63,7 @@ export default function Hero() {
           >
             <a
               href="#projects"
-              className="px-8 py-4 rounded-full bg-white text-black font-code text-xs uppercase tracking-widest font-semibold hover:shadow-[0_0_30px_rgba(139,92,246,0.4)] transition-all duration-300 transform hover:scale-105"
+              className="px-8 py-4 rounded-full bg-white text-black font-code text-xs uppercase tracking-widest font-semibold hover:shadow-[0_0_30px_rgba(252,255,212,0.35)] transition-all duration-300 transform hover:scale-105"
             >
               View My Work
             </a>
@@ -79,12 +80,19 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="lg:col-span-4 relative h-[360px] w-full hidden lg:flex items-center justify-center"
+          className="lg:col-span-4 relative h-[420px] w-full hidden lg:flex items-center justify-center"
         >
-          <div className="w-64 h-64 border border-white/10 rounded-full absolute animate-[spin_24s_linear_infinite]" />
-          <div className="w-48 h-48 border border-tertiary/30 rounded-full absolute animate-[spin_18s_linear_infinite_reverse]" />
-          <div className="w-32 h-32 glass-panel rounded-full absolute flex items-center justify-center backdrop-blur-xl">
-            <span className="font-code text-[10px] uppercase tracking-widest text-tertiary">RAG / LLM</span>
+          <div className="w-72 h-72 border border-white/10 rounded-full absolute animate-[spin_24s_linear_infinite]" />
+          <div className="w-56 h-56 border border-tertiary/30 rounded-full absolute animate-[spin_18s_linear_infinite_reverse]" />
+          <div className="relative w-64 h-64 rounded-full overflow-hidden glass-panel">
+            <Image
+              src="/profile.jpg"
+              alt="Portrait"
+              fill
+              sizes="256px"
+              className="object-cover"
+              priority
+            />
           </div>
         </motion.div>
       </div>

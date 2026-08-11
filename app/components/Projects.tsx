@@ -1,5 +1,5 @@
 import { projects } from "@/lib/data";
-import ProjectCard from "./ProjectCard";
+import ProjectShowcase from "./ProjectShowcase";
 import Reveal from "./Reveal";
 
 export default function Projects() {
@@ -12,11 +12,7 @@ export default function Projects() {
           Products I&apos;ve architected, built and shipped.
         </h2>
       </Reveal>
-      <div className="flex flex-col gap-8">
-        {projects.map((project, i) => (
-          <ProjectCard key={project.slug} project={project} index={i} />
-        ))}
-      </div>
+      <ProjectShowcase projects={projects} />
     </section>
   );
 }

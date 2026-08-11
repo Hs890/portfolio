@@ -38,8 +38,8 @@ void main() {
     blob2 = pow(max(0.0, blob2), 4.0) * 0.28;
     mouseGlow = pow(max(0.0, mouseGlow), 6.0) * 0.5;
 
-    vec3 color1 = vec3(0.08, 0.04, 0.16);
-    vec3 accent = vec3(0.545, 0.361, 0.965);
+    vec3 color1 = vec3(0.1, 0.1, 0.07);
+    vec3 accent = vec3(0.988, 1.0, 0.831);
 
     vec3 finalColor = mix(vec3(0.01), color1, uv.y);
     finalColor += accent * (blob1 + blob2 + mouseGlow);

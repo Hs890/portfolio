@@ -17,7 +17,7 @@ export default function Journey() {
           {journey.map((item, i) => (
             <Reveal key={item.title} delay={0.08 * i} y={24}>
               <div className="relative">
-                <span className="absolute -left-8 md:-left-12 top-1.5 w-3 h-3 rounded-full bg-tertiary shadow-[0_0_12px_rgba(139,92,246,0.8)]" />
+                <span className="absolute -left-8 md:-left-12 top-1.5 w-3 h-3 rounded-full bg-tertiary shadow-[0_0_12px_rgba(252,255,212,0.7)]" />
                 <p className="font-code text-[11px] uppercase tracking-widest text-tertiary mb-2">{item.year}</p>
                 <h3 className="font-display text-xl md:text-2xl font-bold text-on-background mb-2 tracking-tight">
                   {item.title}

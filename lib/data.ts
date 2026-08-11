@@ -1,3 +1,45 @@
+export const contact = {
+  fiverr: { label: "Hire Me on Fiverr", href: "#", note: "Best response time & secure payments" },
+  email: "hafizsaad010@gmail.com",
+  whatsapp: "+92 309 8663850",
+  whatsappHref: "https://wa.me/923098663850",
+  github: { label: "github.com/hafizsaad5678", href: "https://github.com/hafizsaad5678" },
+  linkedin: { label: "linkedin.com/in/hafizsaad5678", href: "https://linkedin.com/in/hafizsaad5678" },
+};
+
+export type Service = {
+  title: string;
+  description: string;
+  points: string[];
+};
+
+export const services: Service[] = [
+  {
+    title: "Full Stack Web Development",
+    description:
+      "End-to-end web application development using MERN stack with modern UI/UX, responsive design, and scalable architecture.",
+    points: ["React/Next.js Frontend", "Node.js/Express Backend", "MongoDB/PostgreSQL", "REST & GraphQL APIs"],
+  },
+  {
+    title: "Mobile App Development",
+    description:
+      "Cross-platform mobile applications built with React Native and Expo, delivering native performance on iOS and Android.",
+    points: ["React Native / Expo", "iOS & Android", "Push Notifications", "Offline Support"],
+  },
+  {
+    title: "Backend & Database Solutions",
+    description:
+      "Robust backend systems with Supabase and Firebase, featuring real-time data sync, authentication, and cloud functions.",
+    points: ["Supabase / Firebase", "Real-time Databases", "Authentication", "Cloud Functions"],
+  },
+  {
+    title: "API Development & Integration",
+    description:
+      "Custom API development and third-party integrations including payment gateways, social auth, and cloud services.",
+    points: ["RESTful APIs", "Third-party Integration", "Payment Gateways", "OAuth / Social Auth"],
+  },
+];
+
 export type Project = {
   slug: string;
   name: string;
