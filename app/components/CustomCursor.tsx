@@ -81,9 +81,9 @@ export default function CustomCursor() {
             "radial-gradient(circle, rgba(252,255,212,0.35) 0%, rgba(252,255,212,0) 70%)",
         }}
         animate={{
-          width: hovering ? 220 : 140,
-          height: hovering ? 220 : 140,
-          opacity: hovering ? 0.7 : 0.45,
+          width: hovering ? 150 : 90,
+          height: hovering ? 150 : 90,
+          opacity: hovering ? 0.6 : 0.4,
         }}
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
       />

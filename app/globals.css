@@ -67,6 +67,14 @@ html {
 
 body {
   background-color: #050505;
+  font-feature-settings: "cv11", "ss01", "cv02", "cv03", "cv04";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+p,
+li {
+  line-height: 1.65;
 }
 
 ::-webkit-scrollbar {

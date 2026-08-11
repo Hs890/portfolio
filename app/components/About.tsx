@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { stats } from "@/lib/data";
 import Reveal from "./Reveal";
 
@@ -10,10 +11,25 @@ export default function About() {
         <div className="lg:col-span-6">
           <Reveal>
             <p className="font-code text-xs uppercase tracking-widest text-tertiary mb-4">About</p>
-            <h2 className="font-display text-2xl md:text-4xl font-bold text-on-background mb-8 tracking-tight leading-tight">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="relative w-14 h-14 rounded-full overflow-hidden glass-panel shrink-0">
+                <Image src="/profile.jpg" alt="Saad" fill sizes="56px" className="object-cover" />
+              </div>
+              <p className="font-display text-xl md:text-2xl font-bold text-on-background">
+                Hey, I&apos;m Saad <span className="align-middle">👋</span>
+              </p>
+            </div>
+            <h2 className="font-display text-2xl md:text-4xl font-bold text-on-background mb-6 tracking-tight leading-tight">
               I enjoy taking an idea all the way to a working product &mdash;
               not just writing the code in the middle.
             </h2>
+            <p className="font-body text-sm md:text-base text-on-surface-variant leading-relaxed mb-8 max-w-xl">
+              Based in Pakistan, I spend most of my time in the space between
+              code and business logic — figuring out what a system actually
+              needs to do, then building it properly. Some days that&apos;s a
+              Django backend, other days it&apos;s wiring up a RAG pipeline at
+              1am because I got curious how it works under the hood.
+            </p>
           </Reveal>
           <Reveal delay={0.1}>
             <div className="flex flex-wrap items-center gap-2 mb-10">
