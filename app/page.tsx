@@ -1,4 +1,5 @@
 import ShaderBackground from "./components/ShaderBackground";
+import CustomCursor from "./components/CustomCursor";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import TechMarquee from "./components/TechMarquee";
@@ -14,6 +15,7 @@ export default function Home() {
   return (
     <>
       <ShaderBackground />
+      <CustomCursor />
       <Navbar />
       <main className="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-gutter">
         <Hero />

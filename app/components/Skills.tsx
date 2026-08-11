@@ -1,6 +1,5 @@
 import { skillGroups } from "@/lib/data";
 import Reveal from "./Reveal";
-import SkillsShowcase from "./SkillsShowcase";
 
 export default function Skills() {
   return (
@@ -13,9 +12,33 @@ export default function Skills() {
         </h2>
       </Reveal>
 
-      <Reveal delay={0.1}>
-        <SkillsShowcase groups={skillGroups} />
-      </Reveal>
+      <div className="flex flex-col gap-4">
+        {skillGroups.map((group, gi) => (
+          <Reveal key={group.group} delay={0.05 * gi}>
+            <div className="glass-panel rounded-xl p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-5">
+              <div className="md:w-48 shrink-0 flex items-center gap-3">
+                <span className="font-code text-xs text-tertiary tabular-nums">
+                  {String(gi + 1).padStart(2, "0")}
+                </span>
+                <h3 className="font-display text-lg font-bold text-on-background tracking-tight">
+                  {group.group}
+                </h3>
+              </div>
+              <div className="hidden md:block w-px self-stretch bg-white/10" />
+              <div className="flex flex-wrap gap-2.5">
+                {group.items.map((item) => (
+                  <span
+                    key={item}
+                    className="px-4 py-2 rounded-full bg-white/[0.04] border border-white/10 font-body text-sm text-on-surface-variant hover:border-tertiary/40 hover:bg-tertiary/[0.06] hover:text-on-background transition-all duration-300 cursor-default"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        ))}
+      </div>
     </section>
   );
 }

@@ -80,16 +80,16 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="lg:col-span-4 relative h-[420px] w-full hidden lg:flex items-center justify-center"
+          className="lg:col-span-4 relative h-[460px] w-full hidden lg:flex items-center justify-center"
         >
-          <div className="w-72 h-72 border border-white/10 rounded-full absolute animate-[spin_24s_linear_infinite]" />
-          <div className="w-56 h-56 border border-tertiary/30 rounded-full absolute animate-[spin_18s_linear_infinite_reverse]" />
-          <div className="relative w-64 h-64 rounded-full overflow-hidden glass-panel">
+          <div className="w-[22rem] h-[22rem] border border-white/10 rounded-full absolute animate-[spin_24s_linear_infinite]" />
+          <div className="w-72 h-72 border border-tertiary/30 rounded-full absolute animate-[spin_18s_linear_infinite_reverse]" />
+          <div className="relative w-80 h-80 rounded-full overflow-hidden glass-panel">
             <Image
               src="/profile.jpg"
               alt="Portrait"
               fill
-              sizes="256px"
+              sizes="320px"
               className="object-cover"
               priority
             />
