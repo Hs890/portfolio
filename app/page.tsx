@@ -2,14 +2,11 @@ import ShaderBackground from "./components/ShaderBackground";
 import CustomCursor from "./components/CustomCursor";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import TechMarquee from "./components/TechMarquee";
 import Projects from "./components/Projects";
-import Services from "./components/Services";
 import About from "./components/About";
 import Skills from "./components/Skills";
-import Journey from "./components/Journey";
+import TechMarquee from "./components/TechMarquee";
 import Contact from "./components/Contact";
-import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -17,19 +14,14 @@ export default function Home() {
       <ShaderBackground />
       <CustomCursor />
       <Navbar />
-      <main className="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+      <main className="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-gutter pb-16">
         <Hero />
-        <TechMarquee />
         <Projects />
-        <Services />
         <About />
+        <TechMarquee />
         <Skills />
-        <Journey />
         <Contact />
       </main>
-      <div className="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-gutter">
-        <Footer />
-      </div>
     </>
   );
 }

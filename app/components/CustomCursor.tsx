@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring, type SpringOptions } from "framer-motion";
 
 const INTERACTIVE_SELECTOR = "a, button, input, textarea, [role='button']";
-const TRAIL_COUNT = 8;
+const TRAIL_COUNT = 5;
+const BASE_DOT_SIZE = 10;
 
 function TrailDot({
   sourceX,
@@ -24,19 +25,22 @@ function TrailDot({
   };
   const x = useSpring(sourceX, spring);
   const y = useSpring(sourceY, spring);
-  const size = Math.max(3, 8 - index * 0.6);
-  const opacity = 1 - index / (TRAIL_COUNT + 2);
+  const scale = (Math.max(3, 8 - index * 0.6) / BASE_DOT_SIZE) * (hovering ? 1.4 : 1);
+  const opacity = (1 - index / (TRAIL_COUNT + 2)) * (hovering ? 0.7 : 1);
 
   return (
     <motion.div
       aria-hidden
       className="fixed top-0 left-0 z-[99] pointer-events-none rounded-full bg-tertiary"
-      style={{ x, y, translateX: "-50%", translateY: "-50%" }}
-      animate={{
-        width: hovering ? size * 1.4 : size,
-        height: hovering ? size * 1.4 : size,
-        opacity: hovering ? opacity * 0.7 : opacity,
+      style={{
+        x,
+        y,
+        width: BASE_DOT_SIZE,
+        height: BASE_DOT_SIZE,
+        translateX: "-50%",
+        translateY: "-50%",
       }}
+      animate={{ scale, opacity }}
       transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
     />
   );
@@ -54,14 +58,21 @@ export default function CustomCursor() {
     setIsTouch(!hasFinePointer);
     if (!hasFinePointer) return;
 
+    let ticking = false;
     function handleMove(e: MouseEvent) {
       x.set(e.clientX);
       y.set(e.clientY);
-      const target = e.target as HTMLElement;
-      setHovering(Boolean(target.closest(INTERACTIVE_SELECTOR)));
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(() => {
+          const target = e.target as HTMLElement;
+          setHovering(Boolean(target.closest(INTERACTIVE_SELECTOR)));
+          ticking = false;
+        });
+      }
     }
 
-    window.addEventListener("mousemove", handleMove);
+    window.addEventListener("mousemove", handleMove, { passive: true });
     return () => window.removeEventListener("mousemove", handleMove);
   }, [x, y]);
 
@@ -75,16 +86,13 @@ export default function CustomCursor() {
         style={{
           x,
           y,
+          width: 150,
+          height: 150,
           translateX: "-50%",
           translateY: "-50%",
-          background:
-            "radial-gradient(circle, rgba(252,255,212,0.35) 0%, rgba(252,255,212,0) 70%)",
+          background: "radial-gradient(circle, rgba(252,255,212,0.35) 0%, rgba(252,255,212,0) 70%)",
         }}
-        animate={{
-          width: hovering ? 150 : 90,
-          height: hovering ? 150 : 90,
-          opacity: hovering ? 0.6 : 0.4,
-        }}
+        animate={{ scale: hovering ? 1 : 0.6, opacity: hovering ? 0.6 : 0.4 }}
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
       />
 
@@ -95,8 +103,8 @@ export default function CustomCursor() {
       <motion.div
         aria-hidden
         className="fixed top-0 left-0 z-[100] pointer-events-none rounded-full bg-tertiary"
-        style={{ x, y, translateX: "-50%", translateY: "-50%" }}
-        animate={{ width: hovering ? 12 : 9, height: hovering ? 12 : 9 }}
+        style={{ x, y, width: 12, height: 12, translateX: "-50%", translateY: "-50%" }}
+        animate={{ scale: hovering ? 1 : 0.75 }}
         transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
       />
 

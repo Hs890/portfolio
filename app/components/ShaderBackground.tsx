@@ -34,11 +34,11 @@ void main() {
     float blob2 = 1.0 - length(uv - vec2(0.8, 0.2) - movement * 0.3);
     float mouseGlow = 1.0 - length(uv - mouse);
 
-    blob1 = pow(max(0.0, blob1), 4.0) * 0.35;
-    blob2 = pow(max(0.0, blob2), 4.0) * 0.28;
-    mouseGlow = pow(max(0.0, mouseGlow), 6.0) * 0.5;
+    blob1 = pow(max(0.0, blob1), 4.0) * 0.18;
+    blob2 = pow(max(0.0, blob2), 4.0) * 0.14;
+    mouseGlow = pow(max(0.0, mouseGlow), 6.0) * 0.3;
 
-    vec3 color1 = vec3(0.1, 0.1, 0.07);
+    vec3 color1 = vec3(0.08, 0.08, 0.06);
     vec3 accent = vec3(0.988, 1.0, 0.831);
 
     vec3 finalColor = mix(vec3(0.01), color1, uv.y);
@@ -69,9 +69,11 @@ export default function ShaderBackground() {
       canvas.getContext("experimental-webgl")) as WebGLRenderingContext | null;
     if (!gl) return;
 
+    const RESOLUTION_SCALE = 0.5;
+
     function syncSize() {
-      const w = canvas!.clientWidth || window.innerWidth;
-      const h = canvas!.clientHeight || window.innerHeight;
+      const w = Math.round((canvas!.clientWidth || window.innerWidth) * RESOLUTION_SCALE);
+      const h = Math.round((canvas!.clientHeight || window.innerHeight) * RESOLUTION_SCALE);
       if (canvas!.width !== w || canvas!.height !== h) {
         canvas!.width = w;
         canvas!.height = h;
@@ -123,19 +125,30 @@ export default function ShaderBackground() {
       gl!.drawArrays(gl!.TRIANGLE_STRIP, 0, 4);
       rafId = requestAnimationFrame(render);
     }
+
+    function handleVisibility() {
+      if (document.hidden) {
+        cancelAnimationFrame(rafId);
+      } else {
+        rafId = requestAnimationFrame(render);
+      }
+    }
+    document.addEventListener("visibilitychange", handleVisibility);
+
     rafId = requestAnimationFrame(render);
 
     return () => {
       cancelAnimationFrame(rafId);
       resizeObserver.disconnect();
       window.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("visibilitychange", handleVisibility);
     };
   }, []);
 
   return (
     <div className="fixed inset-0 z-[-1]">
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-70" />
-      <div className="absolute inset-0 bg-background/85 mix-blend-multiply" />
+      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-50" />
+      <div className="absolute inset-0 bg-background/90 mix-blend-multiply" />
       <div
         className="absolute inset-0 opacity-[0.05]"
         style={{

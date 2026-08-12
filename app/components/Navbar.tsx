@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const LINKS = [
-  { href: "#projects", label: "Projects" },
-  { href: "#services", label: "Services" },
+  { href: "#work", label: "Work" },
   { href: "#about", label: "About" },
+  { href: "#stack", label: "Stack" },
   { href: "#skills", label: "Skills" },
   { href: "#contact", label: "Contact" },
 ];
@@ -20,6 +20,15 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  function handleNavClick(e: React.MouseEvent<HTMLAnchorElement>, href: string) {
+    if (!href.startsWith("#") || href === "#") return;
+    const target = document.querySelector(href);
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    setOpen(false);
+  }
 
   return (
     <motion.nav
@@ -38,6 +47,7 @@ export default function Navbar() {
           <a
             key={link.href}
             href={link.href}
+            onClick={(e) => handleNavClick(e, link.href)}
             className="font-code text-xs uppercase tracking-widest text-on-surface-variant hover:text-on-background transition-colors duration-300"
           >
             {link.label}
@@ -46,6 +56,7 @@ export default function Navbar() {
       </div>
       <a
         href="#contact"
+        onClick={(e) => handleNavClick(e, "#contact")}
         className="hidden md:inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-white text-black font-code text-xs uppercase tracking-widest font-semibold hover:shadow-[0_0_20px_rgba(252,255,212,0.35)] transition-all duration-300"
       >
         Let&apos;s Talk
@@ -66,7 +77,7 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              onClick={() => setOpen(false)}
+              onClick={(e) => handleNavClick(e, link.href)}
               className="font-code text-sm uppercase tracking-widest text-on-surface-variant hover:text-on-background transition-colors"
             >
               {link.label}
@@ -74,7 +85,7 @@ export default function Navbar() {
           ))}
           <a
             href="#contact"
-            onClick={() => setOpen(false)}
+            onClick={(e) => handleNavClick(e, "#contact")}
             className="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-white text-black font-code text-xs uppercase tracking-widest font-semibold"
           >
             Let&apos;s Talk

@@ -66,7 +66,7 @@ function MarqueeLine({ items, reverse = false, accent = false }: { items: string
 
 export default function TechMarquee() {
   return (
-    <section className="py-12 md:py-16 border-y border-white/5 -mx-margin-mobile md:-mx-gutter relative bg-background/50">
+    <section id="stack" className="py-12 md:py-16 border-y border-white/5 -mx-margin-mobile md:-mx-gutter relative bg-background/50">
       <div className="flex flex-col gap-4 md:gap-5">
         <MarqueeLine items={ROW_1} />
         <MarqueeLine items={ROW_2} reverse />

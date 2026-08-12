@@ -1,171 +1,96 @@
 export const contact = {
-  fiverr: { label: "Hire Me on Fiverr", href: "#", note: "Best response time & secure payments" },
+  fiverr: { label: "Hire Me on Fiverr", href: "https://www.fiverr.com/saad_dev2/", note: "Best response time & secure payments" },
   email: "hafizsaad010@gmail.com",
   whatsapp: "+92 309 8663850",
   whatsappHref: "https://wa.me/923098663850",
   github: { label: "github.com/hafizsaad5678", href: "https://github.com/hafizsaad5678" },
-  linkedin: { label: "linkedin.com/in/hafizsaad5678", href: "https://linkedin.com/in/hafizsaad5678" },
+  linkedin: { label: "LinkedIn", href: "https://www.linkedin.com/in/hafiz-saad-8a3853395" },
 };
-
-export type Service = {
-  title: string;
-  description: string;
-  points: string[];
-};
-
-export const services: Service[] = [
-  {
-    title: "Full Stack Web Development",
-    description:
-      "End-to-end web application development using MERN stack with modern UI/UX, responsive design, and scalable architecture.",
-    points: ["React/Next.js Frontend", "Node.js/Express Backend", "MongoDB/PostgreSQL", "REST & GraphQL APIs"],
-  },
-  {
-    title: "Mobile App Development",
-    description:
-      "Cross-platform mobile applications built with React Native and Expo, delivering native performance on iOS and Android.",
-    points: ["React Native / Expo", "iOS & Android", "Push Notifications", "Offline Support"],
-  },
-  {
-    title: "Backend & Database Solutions",
-    description:
-      "Robust backend systems with Supabase and Firebase, featuring real-time data sync, authentication, and cloud functions.",
-    points: ["Supabase / Firebase", "Real-time Databases", "Authentication", "Cloud Functions"],
-  },
-  {
-    title: "API Development & Integration",
-    description:
-      "Custom API development and third-party integrations including payment gateways, social auth, and cloud services.",
-    points: ["RESTful APIs", "Third-party Integration", "Payment Gateways", "OAuth / Social Auth"],
-  },
-];
 
 export type Project = {
   slug: string;
   name: string;
   tagline: string;
-  problem: string;
-  role: string;
   stack: string[];
-  features: string[];
-  live?: string;
   github?: string;
+  live?: string;
   privateRepo?: boolean;
-  size: "large" | "medium";
 };
 
-export const projects: Project[] = [
+export const featuredProjects: Project[] = [
   {
     slug: "learnms",
     name: "LearnMS",
-    tagline: "AI-Based Learning Management System",
-    problem:
-      "Traditional LMS platforms are static — no personalization, no AI assistance, no adaptive assessment. LearnMS (my Final Year Project) rebuilds the LMS around an AI-first learning experience.",
-    role: "Full-stack developer — designed the Django backend, REST APIs, and integrated AI features end-to-end.",
-    stack: ["Django", "Django REST Framework", "Vue.js", "OpenAI", "REST APIs"],
-    features: [
-      "AI chatbot for student support",
-      "AI-powered quiz generator",
-      "Conversational registration chatbot",
-      "Course & content management",
-      "AI-assisted learning experience",
-    ],
+    tagline: "AI-powered Learning Management System",
+    stack: ["Django", "Vue.js", "AI Chatbot", "Quiz Generator", "REST APIs"],
     github: "#",
-    size: "large",
   },
   {
     slug: "factory-erp",
-    name: "Factory ERP System",
-    tagline: "Business management system for manufacturing operations",
-    problem:
-      "A real factory needed one system to replace scattered spreadsheets across accounts, production, purchasing and dispatch — with roles and permissions that match how the business actually works.",
-    role: "Sole developer — designed the schema, built the API and the full frontend, and mapped real business workflows into software.",
+    name: "Factory ERP",
+    tagline: "Business management system for manufacturing workflows",
     stack: ["React", "Bun", "Elysia.js", "PostgreSQL", "Drizzle ORM"],
-    features: [
-      "Accounts & ledger module",
-      "Production tracking",
-      "Purchase management",
-      "Dispatch & delivery",
-      "Users, roles & permissions",
-    ],
     privateRepo: true,
-    size: "large",
   },
   {
     slug: "gym-management",
-    name: "Gym Management System",
-    tagline: "Offline-first mobile app for gym operations",
-    problem:
-      "Gyms need to manage members and collect fees even with unreliable internet — this app runs fully offline and syncs when possible, generating receipts and reports on the fly.",
-    role: "Mobile developer — built the React Native app, local database layer and PDF reporting pipeline.",
+    name: "Gym Management",
+    tagline: "Offline-first mobile management application",
     stack: ["React Native", "Expo", "SQLite", "Drizzle ORM"],
-    features: [
-      "Member dashboard",
-      "Fee collection & receipts",
-      "PDF generation",
-      "Offline-first architecture",
-      "Reports & analytics",
-    ],
     github: "#",
-    size: "medium",
   },
   {
     slug: "local-rag",
-    name: "Local RAG System",
-    tagline: "Provider-agnostic retrieval-augmented generation engine",
-    problem:
-      "Most AI features are just API calls to one vendor. This system implements RAG from the ground up — local embeddings, per-user vector indexes, and a provider abstraction so the LLM backend can be swapped freely.",
-    role: "AI/backend developer — designed the embedding pipeline, vector search layer and LLM provider abstraction inside Django.",
-    stack: ["Django", "Sentence Transformers", "FAISS", "Qdrant", "Ollama", "LangChain"],
-    features: [
-      "Local embedding generation",
-      "User-specific vector indexes",
-      "FAISS-based similarity search",
-      "Swappable LLM provider layer",
-      "Context-aware retrieval pipeline",
-    ],
-    size: "medium",
+    name: "Local RAG",
+    tagline: "Private AI knowledge retrieval system",
+    stack: ["Django", "Sentence Transformers", "FAISS", "Qdrant"],
   },
   {
     slug: "gyzer",
     name: "Gyzer",
     tagline: "Modern e-commerce application",
-    problem:
-      "A fast, type-safe e-commerce stack built on TanStack Start — including a migration off Supabase-only data access toward a PostgreSQL + Drizzle ORM architecture for more control and performance.",
-    role: "Full-stack developer — built the app and led the data-layer migration.",
-    stack: ["TanStack Start", "React", "Vite", "TanStack Router", "TanStack Query", "Supabase", "PostgreSQL", "Drizzle ORM"],
-    features: [
-      "TanStack Router + Query architecture",
-      "Supabase → PostgreSQL/Drizzle migration",
-      "Type-safe end-to-end data layer",
-      "Modern e-commerce UX",
-    ],
-    size: "medium",
+    stack: ["TanStack Start", "React", "Supabase", "Drizzle ORM"],
   },
   {
     slug: "m365-mail-backup",
     name: "Microsoft 365 Mail Backup",
-    tagline: "Secure email backup & sync via Microsoft Graph",
-    problem:
-      "Organizations need a reliable, secure way to back up and sync mailboxes outside of Microsoft's own retention tools — with strong authentication and encryption at rest.",
-    role: "Backend/systems developer — implemented the auth flow, sync engine and encryption layer.",
-    stack: ["TypeScript", "Microsoft Graph API", "MSAL", "OAuth 2.0", "AES-256-GCM"],
-    features: [
-      "OAuth 2.0 device code flow",
-      "Token caching",
-      "AES-256-GCM encrypted storage",
-      "Mailbox backup & synchronization",
-    ],
+    tagline: "TypeScript + Microsoft Graph application",
+    stack: ["TypeScript", "Microsoft Graph API", "MSAL", "AES-256-GCM"],
     github: "#",
-    size: "medium",
   },
 ];
 
-export const stats = [
-  { label: "Full-Stack Development", value: "6+", suffix: "products shipped" },
-  { label: "AI Systems", value: "3", suffix: "RAG/LLM systems built" },
-  { label: "SaaS & APIs", value: "10+", suffix: "REST APIs designed" },
-  { label: "Business Applications", value: "2", suffix: "ERP/management systems" },
+export const moreProjects: Project[] = [
+  {
+    slug: "unity-ggw-academy",
+    name: "Unity GGW Academy Integration",
+    tagline: "Unity integration with animation bridge and backend data parsing",
+    stack: ["Unity", "Animation Bridge", "JSON Retargeting", "API Integration"],
+  },
+  {
+    slug: "daily-ayah",
+    name: "Daily Ayah Experience",
+    tagline: "Offline-first Quran companion app",
+    stack: ["React Native", "Expo Router", "Offline-first", "Widget Support"],
+  },
+  {
+    slug: "pos-system",
+    name: "POS / Business Management",
+    tagline: "Business management system for retail operations",
+    stack: ["React", "Bun", "Elysia.js", "PostgreSQL", "Drizzle ORM"],
+    privateRepo: true,
+  },
+  {
+    slug: "ai-core",
+    name: "AI Core / LLM Provider Architecture",
+    tagline: "Provider-agnostic LLM architecture across OpenAI, Gemini, Ollama",
+    stack: ["Django", "OpenAI", "Gemini", "Ollama", "Pollinations"],
+  },
+];
+
+export const techStack = [
+  "Python", "Django", "FastAPI", "React", "Next.js", "TypeScript",
+  "PostgreSQL", "Supabase", "Bun", "Elysia", "Drizzle", "AI",
 ];
 
 export const skillGroups = [
@@ -188,33 +113,5 @@ export const skillGroups = [
   {
     group: "Tools",
     items: ["Python", "TypeScript", "C#", "C++", "SQL", "Git"],
-  },
-];
-
-export const journey = [
-  {
-    year: "Foundation",
-    title: "Computer Science Degree",
-    description: "Built a foundation across algorithms, systems and software engineering while shipping side projects.",
-  },
-  {
-    year: "FYP",
-    title: "LearnMS — AI Learning Management System",
-    description: "Final Year Project combining Django, Vue.js and AI — an LMS with chatbots, quiz generation and adaptive learning.",
-  },
-  {
-    year: "Business Systems",
-    title: "Factory ERP & Gym Management",
-    description: "Moved from academic projects to real business software — ERP for manufacturing, offline-first mobile apps for gyms.",
-  },
-  {
-    year: "AI Depth",
-    title: "Local RAG & Provider-Agnostic AI",
-    description: "Went beyond calling AI APIs — built local embedding pipelines, vector search and swappable LLM provider architecture.",
-  },
-  {
-    year: "Now",
-    title: "Full-Stack + AI Product Engineering",
-    description: "Building complete products end-to-end — web apps, APIs, AI features and business systems — from idea to deployment.",
   },
 ];
