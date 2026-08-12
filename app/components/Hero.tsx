@@ -19,6 +19,15 @@ export default function Hero() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
         <div className="lg:col-span-8 flex flex-col items-start gap-7">
           <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden glass-panel lg:hidden"
+          >
+            <Image src="/profile.jpg" alt="Portrait" fill sizes="112px" className="object-cover" priority />
+          </motion.div>
+
+          <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}

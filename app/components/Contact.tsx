@@ -64,7 +64,7 @@ export default function Contact() {
                   href={row.href}
                   target={row.href.startsWith("http") ? "_blank" : undefined}
                   rel={row.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="group relative flex items-center justify-between gap-8 py-7 sm:py-8 px-2 -mx-2 border-t border-white/10 last:border-b transition-all duration-300 hover:px-4"
+                  className="group relative flex items-center justify-between gap-3 sm:gap-8 py-6 sm:py-8 px-2 -mx-2 border-t border-white/10 last:border-b transition-all duration-300 sm:hover:px-4"
                 >
                   <span
                     aria-hidden
@@ -74,26 +74,26 @@ export default function Contact() {
                         "radial-gradient(700px circle at 0% 50%, rgba(252,255,212,0.07), transparent 60%)",
                     }}
                   />
-                  <span className="relative flex items-center gap-4 sm:gap-6 min-w-0">
-                    <span className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center shrink-0 group-hover:border-tertiary/40 transition-colors duration-300">
+                  <span className="relative flex items-center gap-3 sm:gap-6 min-w-0">
+                    <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-white/10 flex items-center justify-center shrink-0 group-hover:border-tertiary/40 transition-colors duration-300">
                       <svg
                         viewBox="0 0 24 24"
                         fill="currentColor"
-                        className="w-4 h-4 text-on-surface-variant group-hover:text-tertiary transition-colors duration-300"
+                        className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-on-surface-variant group-hover:text-tertiary transition-colors duration-300"
                       >
                         <path d={row.icon} />
                       </svg>
                     </span>
-                    <span className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-8 min-w-0">
-                      <span className="font-code text-[11px] uppercase tracking-widest text-on-surface-variant/50 w-20 shrink-0">
+                    <span className="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-8 min-w-0">
+                      <span className="font-code text-[11px] uppercase tracking-widest text-on-surface-variant/50 sm:w-20 shrink-0">
                         {row.label}
                       </span>
-                      <span className="font-display text-lg sm:text-xl md:text-2xl font-bold text-on-background group-hover:text-tertiary transition-colors tracking-tight whitespace-nowrap">
+                      <span className="font-display text-base sm:text-xl md:text-2xl font-bold text-on-background group-hover:text-tertiary transition-colors tracking-tight break-words sm:whitespace-nowrap">
                         {row.value}
                       </span>
                     </span>
                   </span>
-                  <span className="relative font-display text-xl text-on-surface-variant/30 group-hover:text-tertiary group-hover:translate-x-2 transition-all duration-300 shrink-0">
+                  <span className="relative font-display text-lg sm:text-xl text-on-surface-variant/30 group-hover:text-tertiary group-hover:translate-x-2 transition-all duration-300 shrink-0">
                     &rarr;
                   </span>
                 </a>
