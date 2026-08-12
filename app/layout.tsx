@@ -21,7 +21,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Saad Ansari — Full-Stack & AI Developer",
+  title: "Saad Ansari Full-Stack & AI Developer",
   description:
     "I build software that turns complex ideas into real products — web apps, AI systems, SaaS, APIs and business software.",
 };
