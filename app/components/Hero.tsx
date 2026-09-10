@@ -34,7 +34,7 @@ export default function Hero() {
             className="flex flex-wrap items-center gap-x-4 gap-y-2"
           >
             <p className="font-code text-xs sm:text-sm uppercase tracking-[0.3em] text-tertiary">
-              Full-Stack / AI Developer
+              Full-Stack & Local AI Engineer
             </p>
             <a
               href="https://www.9tsolutions.com"
@@ -67,10 +67,9 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="font-body text-base sm:text-lg text-on-surface-variant max-w-xl"
+            className="font-body text-base sm:text-lg text-on-surface-variant max-w-xl leading-relaxed"
           >
-            I build web applications, AI systems and business software — from
-            architecture to deployment.
+            I build Local RAG intelligence systems, full-stack web platforms, enterprise ERP/POS software, and offline-first mobile apps — from architecture to deployment.
           </motion.p>
 
           <motion.div

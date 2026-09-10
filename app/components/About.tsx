@@ -6,12 +6,10 @@ export default function About() {
     <section id="about" className="py-section-gap-mobile md:py-section-gap-desktop relative">
       <Reveal>
         <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-on-background tracking-tight leading-snug max-w-2xl">
-          CS graduate building full-stack products with React, Python, Django
-          and AI.
+          Full-Stack & Local AI Engineer building production systems with Local RAG, FAISS, React 19, Django and React Native.
         </h2>
-        <p className="font-body text-base md:text-lg text-on-surface-variant mt-4 max-w-xl">
-          Currently focused on AI-powered applications, SaaS and business
-          systems.
+        <p className="font-body text-base md:text-lg text-on-surface-variant mt-4 max-w-xl leading-relaxed">
+          Specializing in private on-premise AI architectures (FAISS, Sentence Transformers, temporal video analysis), enterprise ERP & POS systems, and offline-first mobile applications.
         </p>
         <a
           href="https://www.9tsolutions.com"
