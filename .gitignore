@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Case studies & private markdown notes
+public/Projects/**/*.md
+public/Projects/*/*.md
