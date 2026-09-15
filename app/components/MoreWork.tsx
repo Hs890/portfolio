@@ -39,10 +39,10 @@ function ProjectCard({
   return (
     <div
       onClick={() => onSelectProject(project)}
-      className="group glass-panel rounded-2xl border border-white/10 overflow-hidden flex flex-col h-full hover:border-tertiary/40 hover:shadow-[0_0_30px_rgba(252,255,212,0.08)] transition-all duration-300 cursor-pointer"
+      className="group glass-panel rounded-2xl overflow-hidden flex flex-col h-full transition-all duration-300 cursor-pointer"
     >
       {/* Thumbnail Preview with Left/Right Sliding Buttons */}
-      <div className="relative aspect-[16/10] bg-black/70 overflow-hidden">
+      <div className="relative aspect-[16/10] overflow-hidden" style={{ background: 'var(--img-overlay-bg)' }}>
         <AnimatePresence mode="wait">
           <motion.div
             key={currentScreenshot.url}
@@ -66,7 +66,10 @@ function ProjectCard({
 
         {/* Category Tag */}
         <div className="absolute top-3 left-3 flex items-center gap-2 z-10">
-          <span className="px-2.5 py-0.5 rounded-full bg-black/70 backdrop-blur-md border border-white/10 font-code text-[10px] uppercase tracking-wider text-tertiary">
+          <span
+            className="px-2.5 py-0.5 rounded-full backdrop-blur-md font-code text-[10px] uppercase tracking-wider text-tertiary"
+            style={{ background: 'var(--caption-bg)', border: '1px solid var(--glass-border)' }}
+          >
             {project.category}
           </span>
         </div>
@@ -75,7 +78,12 @@ function ProjectCard({
         {numScreenshots > 1 && (
           <button
             onClick={handlePrev}
-            className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/75 hover:bg-black/95 border border-white/20 text-white flex items-center justify-center opacity-80 group-hover:opacity-100 hover:border-tertiary transition-all duration-200 shadow-md"
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full flex items-center justify-center opacity-80 group-hover:opacity-100 transition-all duration-200 shadow-md"
+            style={{
+              background: 'var(--slider-btn-bg)',
+              border: '1px solid var(--slider-btn-border)',
+              color: 'var(--slider-btn-color)',
+            }}
             aria-label="Previous image"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -88,7 +96,12 @@ function ProjectCard({
         {numScreenshots > 1 && (
           <button
             onClick={handleNext}
-            className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/75 hover:bg-black/95 border border-white/20 text-white flex items-center justify-center opacity-80 group-hover:opacity-100 hover:border-tertiary transition-all duration-200 shadow-md"
+            className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full flex items-center justify-center opacity-80 group-hover:opacity-100 transition-all duration-200 shadow-md"
+            style={{
+              background: 'var(--slider-btn-bg)',
+              border: '1px solid var(--slider-btn-border)',
+              color: 'var(--slider-btn-color)',
+            }}
             aria-label="Next image"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -100,7 +113,10 @@ function ProjectCard({
         {/* Slide Counter Badge */}
         {numScreenshots > 1 && (
           <div className="absolute bottom-2 right-2.5 z-10">
-            <span className="font-code text-[10px] bg-black/70 text-tertiary px-2 py-0.5 rounded backdrop-blur-sm border border-white/10">
+            <span
+              className="font-code text-[10px] text-tertiary px-2 py-0.5 rounded backdrop-blur-sm"
+              style={{ background: 'var(--counter-bg)', border: '1px solid var(--glass-border)' }}
+            >
               {currentImgIndex + 1}/{numScreenshots}
             </span>
           </div>
@@ -123,7 +139,8 @@ function ProjectCard({
           {project.stack.slice(0, 4).map((tech) => (
             <span
               key={tech}
-              className="px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/5 font-code text-[10px] text-on-surface-variant/80"
+              className="px-2.5 py-0.5 rounded-full font-code text-[10px] text-on-surface-variant/80"
+              style={{ background: 'var(--pill-bg)', border: '1px solid var(--card-border)' }}
             >
               {tech}
             </span>
@@ -136,8 +153,11 @@ function ProjectCard({
         </div>
 
         {/* Card Footer */}
-        <div className="flex items-center justify-between pt-3 border-t border-white/5 text-[11px] font-code text-on-surface-variant/70">
-          <span className="group-hover:text-white transition-colors flex items-center gap-1 font-semibold text-tertiary">
+        <div
+          className="flex items-center justify-between pt-3 text-[11px] font-code text-on-surface-variant/70"
+          style={{ borderTop: '1px solid var(--card-border)' }}
+        >
+          <span className="group-hover:text-on-background transition-colors flex items-center gap-1 font-semibold text-tertiary">
             Explore Case Study &rarr;
           </span>
 
@@ -147,7 +167,7 @@ function ProjectCard({
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-white transition-colors uppercase tracking-wider"
+                className="hover:text-on-background transition-colors uppercase tracking-wider"
               >
                 GitHub
               </a>

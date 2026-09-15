@@ -49,12 +49,12 @@ export default function Projects() {
                   onClick={() => setActiveCategory(cat)}
                   className={`px-4 py-2 rounded-full font-code text-xs tracking-wider transition-all duration-300 flex items-center gap-1.5 ${
                     isSelected
-                      ? "bg-white text-black font-semibold shadow-[0_0_20px_rgba(252,255,212,0.25)] scale-105"
-                      : "glass-panel text-on-surface-variant hover:text-white hover:bg-white/10"
+                      ? "bg-primary text-background font-semibold scale-105"
+                      : "glass-panel text-on-surface-variant hover:text-on-background"
                   }`}
                 >
                   <span>{cat}</span>
-                  <span className={`text-[10px] ${isSelected ? "text-black/60" : "text-white/40"}`}>
+                  <span className={`text-[10px] ${isSelected ? "text-background/60" : "text-on-surface-variant/40"}`}>
                     ({count})
                   </span>
                 </button>

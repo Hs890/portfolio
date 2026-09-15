@@ -23,12 +23,12 @@ export default function Skills() {
                   {group.group}
                 </h3>
               </div>
-              <div className="hidden md:block w-px self-stretch bg-white/10" />
+              <div className="hidden md:block w-px self-stretch bg-border-subtle" />
               <div className="flex flex-wrap gap-2.5">
                 {group.items.map((item) => (
                   <span
                     key={item}
-                    className="px-4 py-2 rounded-full bg-white/[0.04] border border-white/10 font-body text-sm text-on-surface-variant hover:border-tertiary/40 hover:bg-tertiary/[0.06] hover:text-on-background transition-all duration-300 cursor-default"
+                    className="px-4 py-2 rounded-full bg-surface-container-high/40 border border-border-subtle font-body text-sm text-on-surface-variant hover:border-tertiary/40 hover:bg-tertiary/[0.06] hover:text-on-background transition-all duration-300 cursor-default"
                   >
                     {item}
                   </span>

@@ -45,7 +45,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 font-code text-xs uppercase tracking-widest text-on-background"
             >
-              <span className="border-b border-white/20 group-hover:border-tertiary pb-0.5 transition-colors whitespace-nowrap">
+              <span className="border-b border-border-subtle group-hover:border-tertiary pb-0.5 transition-colors whitespace-nowrap">
                 Start a Conversation
               </span>
               <span className="group-hover:translate-x-1 group-hover:text-tertiary transition-all duration-300">
@@ -64,18 +64,18 @@ export default function Contact() {
                   href={row.href}
                   target={row.href.startsWith("http") ? "_blank" : undefined}
                   rel={row.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="group relative flex items-center justify-between gap-3 sm:gap-8 py-6 sm:py-8 px-2 -mx-2 border-t border-white/10 last:border-b transition-all duration-300 sm:hover:px-4"
+                  className="group relative flex items-center justify-between gap-3 sm:gap-8 py-6 sm:py-8 px-2 -mx-2 border-t border-border-subtle last:border-b transition-all duration-300 sm:hover:px-4"
                 >
                   <span
                     aria-hidden
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                     style={{
                       background:
-                        "radial-gradient(700px circle at 0% 50%, rgba(252,255,212,0.07), transparent 60%)",
+                        "radial-gradient(700px circle at 0% 50%, var(--contact-hover-glow, rgba(252,255,212,0.07)), transparent 60%)",
                     }}
                   />
                   <span className="relative flex items-center gap-3 sm:gap-6 min-w-0">
-                    <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-white/10 flex items-center justify-center shrink-0 group-hover:border-tertiary/40 transition-colors duration-300">
+                    <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-border-subtle flex items-center justify-center shrink-0 group-hover:border-tertiary/40 transition-colors duration-300">
                       <svg
                         viewBox="0 0 24 24"
                         fill="currentColor"

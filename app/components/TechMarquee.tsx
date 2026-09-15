@@ -18,7 +18,7 @@ function Chip({ label, accent = false }: { label: string; accent?: boolean }) {
       className={`shrink-0 px-5 py-2.5 rounded-full font-code text-xs md:text-sm uppercase tracking-wide border transition-colors duration-300 ${
         accent
           ? "border-tertiary/30 bg-tertiary/10 text-on-tertiary-container"
-          : "border-white/10 bg-white/[0.03] text-on-surface-variant"
+          : "border-border-subtle bg-surface-container/50 text-on-surface-variant"
       }`}
     >
       {label}
@@ -66,7 +66,7 @@ function MarqueeLine({ items, reverse = false, accent = false }: { items: string
 
 export default function TechMarquee() {
   return (
-    <section id="stack" className="py-12 md:py-16 border-y border-white/5 -mx-margin-mobile md:-mx-gutter relative bg-background/50">
+    <section id="stack" className="py-12 md:py-16 border-y border-border-subtle -mx-margin-mobile md:-mx-gutter relative bg-background/50">
       <div className="flex flex-col gap-4 md:gap-5">
         <MarqueeLine items={ROW_1} />
         <MarqueeLine items={ROW_2} reverse />

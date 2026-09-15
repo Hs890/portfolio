@@ -34,32 +34,32 @@ export const allProjects: Project[] = [
   {
     id: "local-rag",
     slug: "local-rag",
-    name: "Local RAG & AI Chatbot Architecture",
+    name: "AI RAG & Intelligent Chatbot",
     category: "AI & RAG",
-    tagline: "Private On-Premise FAISS Vector Retrieval & Document Chatbot with Integrity Verification",
-    overview: "An on-premise, zero-cloud-lock-in AI Chatbot and RAG architecture designed to deliver private, fast, and hallucination-free document querying. Combines local HuggingFace embeddings (all-MiniLM-L6-v2), disk-persisted FAISS vector indices with SHA-256 integrity verification, a hybrid Intent Router that routes deterministic questions directly to DB and document inquiries to vector search, and automated JSON Schema assessment repair.",
+    tagline: "Private FAISS Vector Retrieval & Document Chatbot with Integrity Verification",
+    overview: "An on-premise, zero-cloud-lock-in AI Chatbot and RAG architecture designed to deliver private, fast, and hallucination-free document querying. Combines HuggingFace embeddings (all-MiniLM-L6-v2), disk-persisted FAISS vector indices with SHA-256 integrity verification, a hybrid Intent Router that routes deterministic questions directly to DB and document inquiries to vector search, and automated JSON Schema assessment repair.",
     heroImage: "/Projects/local reg/document given.png",
     screenshots: [
       { url: "/Projects/local reg/document given.png", caption: "Course Document Ingestion & Chunking Inspector" },
-      { url: "/Projects/local reg/chatbot.png", caption: "Context-Aware Local RAG Chatbot Interface with Document Grounding" },
+      { url: "/Projects/local reg/chatbot.png", caption: "Context-Aware AI RAG Chatbot Interface with Document Grounding" },
       { url: "/Projects/local reg/using reg answer given in document not using global ai.png", caption: "Strict Grounding: Answers Sourced Exclusively from Uploaded Document" },
       { url: "/Projects/local reg/quiz maked by ai.png", caption: "Automated Assessment Engine: JSON Schema-Enforced Quiz Synthesis" },
       { url: "/Projects/local reg/quiz attempting.png", caption: "Student Quiz Attempt View with Real-Time Validation" },
       { url: "/Projects/local reg/quiz title given.png", caption: "Topic & Document-to-Assessment Configuration Studio" },
     ],
-    stack: ["Python 3.11", "Django 5 DRF", "FAISS", "Sentence Transformers", "all-MiniLM-L6-v2", "Ollama / Local LLM", "LangChain"],
+    stack: ["Python 3.11", "Django 5 DRF", "FAISS", "Sentence Transformers", "all-MiniLM-L6-v2", "Ollama / AI Models", "LangChain"],
     metrics: [
       { label: "Cloud Dependency", value: "0% External APIs" },
-      { label: "Vector Store", value: "FAISS Local Index" },
+      { label: "Vector Store", value: "FAISS Vector Index" },
       { label: "Query Routing", value: "Hybrid Intent Engine" },
     ],
     highlights: [
-      "Zero API fee overhead using local CPU/CUDA embeddings (all-MiniLM-L6-v2) for all document chunks",
+      "Zero API fee overhead using high-performance CPU/CUDA embeddings (all-MiniLM-L6-v2) for all document chunks",
       "SHA-256 index integrity manifests ensuring FAISS index files cannot be corrupted or tampered with",
       "Hybrid intent classification routing symbolic queries directly to Django ORM and RAG queries to FAISS",
       "Strict JSON Schema validation with automatic markdown-fence repair for AI-generated assessments",
     ],
-    architectureSummary: "Document Ingestion (PDF/DOCX) -> RecursiveCharacterTextSplitter -> Local SentenceTransformers -> FAISS Index with SHA-256 Checksum -> Multi-Tier Intent Router -> Contextual Synthesis.",
+    architectureSummary: "Document Ingestion (PDF/DOCX) -> RecursiveCharacterTextSplitter -> SentenceTransformers -> FAISS Index with SHA-256 Checksum -> Multi-Tier Intent Router -> Contextual Synthesis.",
     github: "https://github.com/hafizsaad5678",
   },
   {
@@ -94,10 +94,10 @@ export const allProjects: Project[] = [
   {
     id: "video-rag",
     slug: "video-rag",
-    name: "AI Video Explainer & Local RAG",
+    name: "AI Video Explainer & Temporal RAG",
     category: "AI & RAG",
-    tagline: "Local Temporal RAG & AI Video Intelligence with Frame-Level Semantic Search",
-    overview: "A specialized full-stack video intelligence platform that processes raw screen recordings locally using FFmpeg / Canvas frame sampling, Sentence Transformers embeddings, and FAISS vector indexing. Users can search video moments in real-time or converse with the video using local RAG, receiving precise clickable timestamp chips that seek the video directly to the answer moment.",
+    tagline: "Temporal AI RAG & Video Intelligence with Frame-Level Semantic Search",
+    overview: "A specialized full-stack video intelligence platform that processes raw screen recordings using FFmpeg / Canvas frame sampling, Sentence Transformers embeddings, and FAISS vector indexing. Users can search video moments in real-time or converse with the video using AI RAG, receiving precise clickable timestamp chips that seek the video directly to the answer moment.",
     heroImage: "/Projects/video reg/clear-result-rag-qa.png",
     screenshots: [
       { url: "/Projects/video reg/clear-result-rag-qa.png", caption: "High-Precision RAG Q&A with 100% Accurate Timestamp Grounding" },
@@ -110,14 +110,14 @@ export const allProjects: Project[] = [
       { url: "/Projects/video reg/what it does.png", caption: "System Feature Breakdown & Diagnostic Analysis" },
       { url: "/Projects/video reg/scanning etc.png", caption: "Batch Frame Processing & OCR Ingestion Engine" },
     ],
-    stack: ["Local RAG", "FAISS", "Sentence Transformers", "FFmpeg / Canvas", "React 19", "TanStack Start", "TypeScript", "Tailwind CSS v4"],
+    stack: ["AI RAG", "FAISS", "Sentence Transformers", "FFmpeg / Canvas", "React 19", "TanStack Start", "TypeScript", "Tailwind CSS v4"],
     metrics: [
       { label: "Frame Sampling", value: "Up to 7,200 Frames" },
       { label: "Vector Search", value: "<15ms via FAISS" },
       { label: "Grounding", value: "100% Exact Timestamps" },
     ],
     highlights: [
-      "Local vector embeddings & FAISS index for instant semantic retrieval across video frames",
+      "AI vector embeddings & FAISS index for instant semantic retrieval across video frames",
       "Client-side frame extraction via Canvas / FFmpeg without heavy server bandwidth",
       "Conversational RAG assistant returning interactive timestamp chips that seek the player",
       "Automated OCR text extraction, UI element recognition, and error detection log",
@@ -193,7 +193,7 @@ export const allProjects: Project[] = [
     slug: "star-gym",
     name: "Star Gym — Offline-First Fitness App",
     category: "Mobile Apps",
-    tagline: "Production-Grade Local-First Mobile Gym Management System",
+    tagline: "Production-Grade Offline-First Mobile Gym Management System",
     overview: "A high-performance, 100% offline-first mobile application tailored for gym owners and fitness club managers. Operates with zero latency using embedded SQLite and Drizzle ORM, featuring an integer minor-units billing engine with credit banking, dynamic membership freezing with automated due-date extensions, printable PDF receipts, and Google Drive cloud backup.",
     heroImage: "/Projects/gym/home.jpeg",
     screenshots: [
@@ -204,7 +204,7 @@ export const allProjects: Project[] = [
     ],
     stack: ["React Native", "Expo SDK 54", "TypeScript", "Drizzle ORM", "Expo SQLite", "NativeWind", "Zustand", "Expo Print", "Google Drive API"],
     metrics: [
-      { label: "Latency", value: "0ms Local SQLite" },
+      { label: "Latency", value: "0ms SQLite" },
       { label: "Reliability", value: "100% Offline-First" },
       { label: "Backup", value: "Google Drive Sync" },
     ],
@@ -222,7 +222,7 @@ export const allProjects: Project[] = [
     slug: "learnms",
     name: "LearnMS — AI-Powered LMS",
     category: "AI & RAG",
-    tagline: "Enterprise Learning Management System with Local RAG Tutoring & Dynamic Quiz Studio",
+    tagline: "Enterprise Learning Management System with AI RAG Tutoring & Dynamic Quiz Studio",
     overview: "An enterprise-grade, full-stack Learning Management System designed for educational institutions. Integrates an on-premise Retrieval-Augmented Generation (RAG) AI Tutor that grounds answers in course notes, an automated multi-format Quiz Generation Engine with per-question regeneration, and dedicated role-based portals for Admins, Teachers, and Students.",
     heroImage: "/Projects/LMS/Student dashboard.png",
     screenshots: [
@@ -244,7 +244,7 @@ export const allProjects: Project[] = [
       "Three distinct role hierarchies (SuperAdmin, Teacher, Student) with frontend route guards and backend scoped querysets",
       "Dynamic client-side PDF attendance sheets and grade report cards via jsPDF",
     ],
-    architectureSummary: "Vue 3 SPA client -> Django REST Framework API Gateway -> Local FAISS Vector Index + HuggingFace Embedder -> Intent Classifier -> PostgreSQL / SQLite Persistence Layer.",
+    architectureSummary: "Vue 3 SPA client -> Django REST Framework API Gateway -> FAISS Vector Index + HuggingFace Embedder -> Intent Classifier -> PostgreSQL / SQLite Persistence Layer.",
     github: "https://github.com/hafizsaad5678",
   },
   {
@@ -311,7 +311,7 @@ export const featuredProjects: Project[] = allProjects.slice(0, 5);
 export const moreProjects: Project[] = allProjects.slice(5);
 
 export const techStack = [
-  "Local RAG", "FAISS", "Sentence Transformers", "Python", "Django",
+  "AI & RAG", "FAISS", "Sentence Transformers", "Python", "Django",
   "React 19", "Next.js", "Vue.js", "React Native", "Expo SDK 54", "TypeScript",
   "Bun", "Elysia.js", "Effect-TS", "TanStack Start", "Drizzle ORM",
   "PostgreSQL", "Supabase", "SQLite", "Tauri 2.0"
@@ -319,15 +319,15 @@ export const techStack = [
 
 export const skillGroups = [
   {
-    group: "AI & Local RAG",
+    group: "AI & RAG Engineering",
     items: [
-      "Local RAG Architecture",
+      "AI & RAG Architecture",
       "FAISS Vector Store",
       "Sentence Transformers (all-MiniLM-L6-v2)",
-      "Temporal / Video RAG",
+      "Temporal / Video AI RAG",
       "Document Chunking & Token Scoping",
       "JSON Schema Enforcement",
-      "Ollama / Local LLMs",
+      "Ollama / AI Models",
       "LangChain",
     ],
   },

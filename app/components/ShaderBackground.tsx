@@ -16,6 +16,7 @@ varying vec2 v_texCoord;
 uniform float u_time;
 uniform vec2 u_resolution;
 uniform vec2 u_mouse;
+uniform float u_dark;
 
 float noise(vec2 p) {
     return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);
@@ -38,13 +39,20 @@ void main() {
     blob2 = pow(max(0.0, blob2), 4.0) * 0.14;
     mouseGlow = pow(max(0.0, mouseGlow), 6.0) * 0.3;
 
-    vec3 color1 = vec3(0.08, 0.08, 0.06);
-    vec3 accent = vec3(0.988, 1.0, 0.831);
+    // Dark mode: warm obsidian blobs | Light mode: plum/berry #5E244E blobs
+    vec3 darkBase   = mix(vec3(0.01), vec3(0.08, 0.08, 0.06), uv.y);
+    vec3 darkAccent  = vec3(0.988, 1.0, 0.831);
 
-    vec3 finalColor = mix(vec3(0.01), color1, uv.y);
-    finalColor += accent * (blob1 + blob2 + mouseGlow);
+    vec3 lightBase  = mix(vec3(0.98), vec3(0.965, 0.96, 0.965), uv.y);
+    vec3 lightAccent = vec3(0.369, 0.141, 0.306);
 
-    float grain = noise(uv * u_time) * 0.02;
+    vec3 base   = mix(lightBase,   darkBase,   u_dark);
+    vec3 accent = mix(lightAccent, darkAccent,  u_dark);
+
+    float intensity = blob1 + blob2 + mouseGlow;
+    vec3 finalColor = base + accent * intensity;
+
+    float grain = noise(uv * u_time) * mix(0.012, 0.02, u_dark);
     finalColor += grain;
 
     gl_FragColor = vec4(finalColor, 1.0);
@@ -65,11 +73,16 @@ export default function ShaderBackground() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const gl = (canvas.getContext("webgl") ||
+    const gl = (canvas.getContext("webgl", {
+      alpha: false,
+      depth: false,
+      antialias: false,
+      powerPreference: "high-performance",
+    }) ||
       canvas.getContext("experimental-webgl")) as WebGLRenderingContext | null;
     if (!gl) return;
 
-    const RESOLUTION_SCALE = 0.5;
+    const RESOLUTION_SCALE = 0.35;
 
     function syncSize() {
       const w = Math.round((canvas!.clientWidth || window.innerWidth) * RESOLUTION_SCALE);
@@ -103,25 +116,38 @@ export default function ShaderBackground() {
     const uTime = gl.getUniformLocation(program, "u_time");
     const uRes = gl.getUniformLocation(program, "u_resolution");
     const uMouse = gl.getUniformLocation(program, "u_mouse");
+    const uDark = gl.getUniformLocation(program, "u_dark");
 
     const mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+    let mouseTicking = false;
     function handleMouseMove(event: MouseEvent) {
-      const rect = canvas!.getBoundingClientRect();
-      if (rect.width && rect.height) {
-        const nx = (event.clientX - rect.left) / rect.width;
-        const ny = 1.0 - (event.clientY - rect.top) / rect.height;
-        mouse.x = nx * canvas!.width;
-        mouse.y = ny * canvas!.height;
+      if (!mouseTicking) {
+        mouseTicking = true;
+        requestAnimationFrame(() => {
+          if (canvas) {
+            const rect = canvas.getBoundingClientRect();
+            if (rect.width && rect.height) {
+              const nx = (event.clientX - rect.left) / rect.width;
+              const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+              mouse.x = nx * canvas.width;
+              mouse.y = ny * canvas.height;
+            }
+          }
+          mouseTicking = false;
+        });
       }
     }
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
 
     let rafId = 0;
     function render(t: number) {
+      const targetDark = document.documentElement.classList.contains("dark") ? 1.0 : 0.0;
+
       gl!.viewport(0, 0, canvas!.width, canvas!.height);
       if (uTime) gl!.uniform1f(uTime, t * 0.001);
       if (uRes) gl!.uniform2f(uRes, canvas!.width, canvas!.height);
       if (uMouse) gl!.uniform2f(uMouse, mouse.x, mouse.y);
+      if (uDark) gl!.uniform1f(uDark, targetDark);
       gl!.drawArrays(gl!.TRIANGLE_STRIP, 0, 4);
       rafId = requestAnimationFrame(render);
     }
@@ -146,14 +172,13 @@ export default function ShaderBackground() {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-[-1]">
+    <div className="fixed inset-0 z-[-1] pointer-events-none overflow-hidden">
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-50" />
-      <div className="absolute inset-0 bg-background/90 mix-blend-multiply" />
+      <div className="absolute inset-0 bg-background/85" />
       <div
         className="absolute inset-0 opacity-[0.05]"
         style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)",
+          backgroundImage: `linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px)`,
           backgroundSize: "64px 64px",
         }}
       />

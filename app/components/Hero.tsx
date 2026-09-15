@@ -33,14 +33,14 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="flex flex-wrap items-center gap-x-4 gap-y-2"
           >
-            <p className="font-code text-xs sm:text-sm uppercase tracking-[0.3em] text-tertiary">
-              Full-Stack & Local AI Engineer
+            <p className="font-code text-xs sm:text-sm uppercase tracking-[0.3em] text-tertiary font-semibold">
+              AI Engineer & Full-Stack Developer
             </p>
             <a
               href="https://www.9tsolutions.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 font-code text-[11px] uppercase tracking-widest text-on-surface-variant/60 hover:text-tertiary transition-colors border-l border-white/10 pl-4"
+              className="group flex items-center gap-2 font-code text-[11px] uppercase tracking-widest text-on-surface-variant/60 hover:text-tertiary transition-colors pl-4 border-l border-border-subtle"
             >
               <span className="relative w-4 h-4 rounded-sm overflow-hidden shrink-0">
                 <Image src="/9t.jpeg" alt="9T Solutions" fill sizes="16px" className="object-cover" />
@@ -69,7 +69,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="font-body text-base sm:text-lg text-on-surface-variant max-w-xl leading-relaxed"
           >
-            I build Local RAG intelligence systems, full-stack web platforms, enterprise ERP/POS software, and offline-first mobile apps — from architecture to deployment.
+            I build AI & RAG intelligence systems, full-stack web platforms, enterprise ERP/POS software, and mobile apps — from architecture to deployment.
           </motion.p>
 
           <motion.div
@@ -81,14 +81,15 @@ export default function Hero() {
             <a
               href="#work"
               onClick={handleAnchorClick}
-              className="px-8 py-4 rounded-full bg-white text-black font-code text-xs uppercase tracking-widest font-semibold hover:shadow-[0_0_30px_rgba(252,255,212,0.35)] transition-all duration-300 transform hover:scale-105"
+              className="px-8 py-4 rounded-full bg-primary text-background font-code text-xs uppercase tracking-widest font-semibold transition-all duration-300 transform hover:scale-105"
+              style={{ boxShadow: '0 0 30px var(--glass-hover-shadow)' }}
             >
               View Work
             </a>
             <a
               href="#contact"
               onClick={handleAnchorClick}
-              className="px-8 py-4 rounded-full glass-panel text-on-surface font-code text-xs uppercase tracking-widest font-semibold hover:bg-white/10 transition-all duration-300 transform hover:scale-105"
+              className="px-8 py-4 rounded-full glass-panel text-on-surface font-code text-xs uppercase tracking-widest font-semibold transition-all duration-300 transform hover:scale-105"
             >
               Contact
             </a>

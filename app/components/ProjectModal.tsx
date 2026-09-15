@@ -75,7 +75,8 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.25 }}
           onClick={onClose}
-          className="absolute inset-0 bg-background/90 backdrop-blur-md cursor-pointer"
+          className="absolute inset-0 backdrop-blur-md cursor-pointer"
+          style={{ background: 'var(--overlay-bg)' }}
         />
 
         {/* Modal Container */}
@@ -84,10 +85,20 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 16 }}
           transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full max-w-5xl max-h-[92vh] bg-surface-container-high/95 border border-white/10 rounded-2xl shadow-2xl overflow-y-auto flex flex-col z-10 custom-scrollbar"
+          className="relative w-full max-w-5xl max-h-[92vh] rounded-2xl shadow-2xl overflow-y-auto flex flex-col z-10 custom-scrollbar"
+          style={{
+            background: 'var(--surface-container-high)',
+            border: '1px solid var(--glass-border)',
+          }}
         >
           {/* Header Bar */}
-          <div className="sticky top-0 z-20 flex items-center justify-between px-6 py-4 bg-surface-container-high/95 backdrop-blur-md border-b border-white/10">
+          <div
+            className="sticky top-0 z-20 flex items-center justify-between px-6 py-4 backdrop-blur-md"
+            style={{
+              background: 'var(--surface-container-high)',
+              borderBottom: '1px solid var(--glass-border)',
+            }}
+          >
             <div className="flex items-center gap-3">
               <span className="px-2.5 py-0.5 rounded-full bg-tertiary/10 border border-tertiary/30 text-tertiary font-code text-[11px] uppercase tracking-wider">
                 {project.category}
@@ -98,7 +109,11 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             </div>
             <button
               onClick={onClose}
-              className="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center text-on-surface-variant hover:text-white transition-all"
+              className="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-background transition-all"
+              style={{
+                background: 'var(--pill-bg)',
+                border: '1px solid var(--glass-border)',
+              }}
               aria-label="Close modal"
             >
               ✕
@@ -108,7 +123,13 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           <div className="p-5 sm:p-7 md:p-9 flex flex-col gap-8">
             {/* Gallery View with prominent Left / Right sliding buttons */}
             <div className="flex flex-col gap-3">
-              <div className="relative rounded-xl overflow-hidden aspect-[16/10] bg-black/70 border border-white/10 flex items-center justify-center group">
+              <div
+                className="relative rounded-xl overflow-hidden aspect-[16/10] flex items-center justify-center group"
+                style={{
+                  background: 'var(--img-overlay-bg)',
+                  border: '1px solid var(--glass-border)',
+                }}
+              >
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentScreenshot.url}
@@ -133,7 +154,12 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 {numScreenshots > 1 && (
                   <button
                     onClick={handlePrev}
-                    className="absolute left-3.5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/75 hover:bg-black/95 border border-white/25 hover:border-tertiary text-white flex items-center justify-center backdrop-blur-md transition-all duration-200 transform hover:scale-110 shadow-2xl"
+                    className="absolute left-3.5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full flex items-center justify-center backdrop-blur-md transition-all duration-200 transform hover:scale-110 shadow-2xl"
+                    style={{
+                      background: 'var(--slider-btn-bg)',
+                      border: '1px solid var(--slider-btn-border)',
+                      color: 'var(--slider-btn-color)',
+                    }}
                     aria-label="Previous screenshot"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -146,7 +172,12 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 {numScreenshots > 1 && (
                   <button
                     onClick={handleNext}
-                    className="absolute right-3.5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/75 hover:bg-black/95 border border-white/25 hover:border-tertiary text-white flex items-center justify-center backdrop-blur-md transition-all duration-200 transform hover:scale-110 shadow-2xl"
+                    className="absolute right-3.5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full flex items-center justify-center backdrop-blur-md transition-all duration-200 transform hover:scale-110 shadow-2xl"
+                    style={{
+                      background: 'var(--slider-btn-bg)',
+                      border: '1px solid var(--slider-btn-border)',
+                      color: 'var(--slider-btn-color)',
+                    }}
                     aria-label="Next screenshot"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -156,11 +187,14 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 )}
 
                 {/* Caption Bar */}
-                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent p-4 flex items-center justify-between z-20">
-                  <p className="font-body text-xs sm:text-sm text-white/90 pr-4">
+                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-background/95 via-background/60 to-transparent p-4 flex items-center justify-between z-20">
+                  <p className="font-body text-xs sm:text-sm text-on-background/90 pr-4">
                     {currentScreenshot.caption}
                   </p>
-                  <span className="font-code text-xs text-tertiary bg-black/50 px-2.5 py-1 rounded border border-white/10 shrink-0 font-medium">
+                  <span
+                    className="font-code text-xs text-tertiary px-2.5 py-1 rounded shrink-0 font-medium"
+                    style={{ background: 'var(--counter-bg)', border: '1px solid var(--glass-border)' }}
+                  >
                     {activeImageIndex + 1} / {numScreenshots}
                   </span>
                 </div>
@@ -176,8 +210,11 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                       className={`relative w-20 sm:w-24 aspect-[16/10] rounded-lg overflow-hidden shrink-0 border transition-all ${
                         idx === activeImageIndex
                           ? "border-tertiary ring-2 ring-tertiary/40 scale-[1.02]"
-                          : "border-white/10 opacity-50 hover:opacity-100"
+                          : "opacity-50 hover:opacity-100"
                       }`}
+                      style={{
+                        borderColor: idx === activeImageIndex ? undefined : 'var(--glass-border)',
+                      }}
                     >
                       <Image src={s.url} alt={s.caption} fill sizes="96px" className="object-cover" />
                     </button>
@@ -192,7 +229,8 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 {project.metrics.map((m) => (
                   <div
                     key={m.label}
-                    className="p-3.5 rounded-xl bg-white/[0.03] border border-white/5 flex flex-col"
+                    className="p-3.5 rounded-xl flex flex-col"
+                    style={{ background: 'var(--pill-bg)', border: '1px solid var(--card-border)' }}
                   >
                     <span className="font-code text-[11px] text-tertiary uppercase tracking-wider">
                       {m.label}
@@ -225,7 +263,8 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                   {project.highlights.map((h, i) => (
                     <li
                       key={i}
-                      className="p-3 rounded-lg bg-white/[0.02] border border-white/5 flex items-start gap-2.5 font-body text-sm text-on-surface-variant"
+                      className="p-3 rounded-lg flex items-start gap-2.5 font-body text-sm text-on-surface-variant"
+                      style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)' }}
                     >
                       <span className="text-tertiary font-code text-xs mt-0.5 shrink-0">✦</span>
                       <span>{h}</span>
@@ -237,7 +276,10 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
             {/* Architecture Summary */}
             {project.architectureSummary && (
-              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/10 flex flex-col gap-1.5">
+              <div
+                className="p-4 rounded-xl flex flex-col gap-1.5"
+                style={{ background: 'var(--card-bg)', border: '1px solid var(--glass-border)' }}
+              >
                 <span className="font-code text-xs text-tertiary uppercase tracking-wider font-medium">
                   Architecture Pipeline
                 </span>
@@ -256,7 +298,8 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 {project.stack.map((t) => (
                   <span
                     key={t}
-                    className="px-3 py-1 rounded-full bg-white/5 border border-white/10 font-code text-xs text-on-surface"
+                    className="px-3 py-1 rounded-full font-code text-xs text-on-surface"
+                    style={{ background: 'var(--pill-bg)', border: '1px solid var(--pill-border)' }}
                   >
                     {t}
                   </span>
@@ -265,19 +308,22 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             </div>
 
             {/* Footer Actions */}
-            <div className="pt-4 border-t border-white/10 flex flex-wrap items-center gap-4">
+            <div className="pt-4 flex flex-wrap items-center gap-4" style={{ borderTop: '1px solid var(--divider)' }}>
               {project.github && (
                 <a
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-2.5 rounded-full bg-white text-black font-code text-xs uppercase tracking-wider font-semibold hover:bg-white/90 transition-all flex items-center gap-2"
+                  className="px-6 py-2.5 rounded-full bg-primary text-background font-code text-xs uppercase tracking-wider font-semibold transition-all flex items-center gap-2"
                 >
                   GitHub Repository
                 </a>
               )}
               {project.privateRepo && (
-                <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10 font-code text-xs uppercase tracking-wider text-on-surface-variant/60">
+                <span
+                  className="px-4 py-2 rounded-full font-code text-xs uppercase tracking-wider text-on-surface-variant/60"
+                  style={{ background: 'var(--pill-bg)', border: '1px solid var(--pill-border)' }}
+                >
                   Client / Private Repository
                 </span>
               )}
@@ -286,7 +332,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                   href={project.live}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-2.5 rounded-full glass-panel border border-white/20 text-on-surface font-code text-xs uppercase tracking-wider font-semibold hover:bg-white/10 transition-all"
+                  className="px-6 py-2.5 rounded-full glass-panel text-on-surface font-code text-xs uppercase tracking-wider font-semibold transition-all"
                 >
                   Live Deployment
                 </a>
