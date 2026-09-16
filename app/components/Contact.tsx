@@ -27,16 +27,16 @@ export default function Contact() {
         <div className="lg:col-span-5">
           <Reveal>
             <a href={contact.fiverr.href} target="_blank" rel="noopener noreferrer" className="group inline-block">
-              <h2 className="font-display text-6xl sm:text-7xl md:text-8xl font-extrabold text-on-background tracking-tight leading-[0.92] mb-7 group-hover:text-tertiary transition-colors duration-300">
+              <h2 className="font-display text-5xl sm:text-7xl md:text-8xl font-extrabold text-on-background tracking-tight leading-[0.92] mb-6 group-hover:text-tertiary transition-colors duration-300">
                 LET&apos;S
                 <br />
                 TALK.
               </h2>
             </a>
-            <p className="font-display text-xl md:text-2xl font-bold text-on-surface tracking-tight mb-2">
+            <p className="font-display text-lg sm:text-2xl font-bold text-on-surface tracking-tight mb-2">
               Have an idea worth building?
             </p>
-            <p className="font-body text-sm md:text-base text-on-surface-variant mb-12">
+            <p className="font-body text-sm md:text-base text-on-surface-variant mb-8 sm:mb-12">
               Tell me what you&apos;re working on.
             </p>
             <a
@@ -64,7 +64,7 @@ export default function Contact() {
                   href={row.href}
                   target={row.href.startsWith("http") ? "_blank" : undefined}
                   rel={row.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="group relative flex items-center justify-between gap-3 sm:gap-8 py-6 sm:py-8 px-2 -mx-2 border-t border-border-subtle last:border-b transition-all duration-300 sm:hover:px-4"
+                  className="group relative flex items-center justify-between gap-3 sm:gap-8 py-5 sm:py-8 px-2 -mx-2 border-t border-border-subtle last:border-b transition-all duration-300 sm:hover:px-4"
                 >
                   <span
                     aria-hidden

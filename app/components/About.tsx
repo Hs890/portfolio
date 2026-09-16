@@ -5,10 +5,10 @@ export default function About() {
   return (
     <section id="about" className="py-section-gap-mobile md:py-section-gap-desktop relative">
       <Reveal>
-        <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-on-background tracking-tight leading-snug max-w-2xl">
+        <h2 className="font-display text-xl sm:text-3xl md:text-4xl font-bold text-on-background tracking-tight leading-snug max-w-2xl">
           AI Engineer & Full-Stack Developer building production systems with AI & RAG, FAISS, React 19, Django and React Native.
         </h2>
-        <p className="font-body text-base md:text-lg text-on-surface-variant mt-4 max-w-xl leading-relaxed">
+        <p className="font-body text-sm sm:text-base md:text-lg text-on-surface-variant mt-3 sm:mt-4 max-w-xl leading-relaxed">
           Specializing in AI architectures (FAISS, Sentence Transformers, temporal video analysis), enterprise ERP & POS systems, and mobile applications.
         </p>
         <a

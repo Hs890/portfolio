@@ -186,7 +186,7 @@ export default function FeaturedWork({ projects, onSelectProject }: FeaturedWork
             {numScreenshots > 1 && (
               <button
                 onClick={handlePrevSlide}
-                className="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full flex items-center justify-center backdrop-blur-md transition-all duration-200 transform hover:scale-110 shadow-xl"
+                className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-11 sm:h-11 rounded-full flex items-center justify-center backdrop-blur-md transition-all duration-200 transform hover:scale-110 shadow-xl"
                 style={{
                   background: 'var(--slider-btn-bg)',
                   border: `1px solid var(--slider-btn-border)`,
@@ -194,7 +194,7 @@ export default function FeaturedWork({ projects, onSelectProject }: FeaturedWork
                 }}
                 aria-label="Previous image"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
@@ -204,7 +204,7 @@ export default function FeaturedWork({ projects, onSelectProject }: FeaturedWork
             {numScreenshots > 1 && (
               <button
                 onClick={handleNextSlide}
-                className="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full flex items-center justify-center backdrop-blur-md transition-all duration-200 transform hover:scale-110 shadow-xl"
+                className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-11 sm:h-11 rounded-full flex items-center justify-center backdrop-blur-md transition-all duration-200 transform hover:scale-110 shadow-xl"
                 style={{
                   background: 'var(--slider-btn-bg)',
                   border: `1px solid var(--slider-btn-border)`,
@@ -212,16 +212,16 @@ export default function FeaturedWork({ projects, onSelectProject }: FeaturedWork
                 }}
                 aria-label="Next image"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
             )}
 
             {/* Caption & Thumbnail Switcher at Bottom */}
-            <div className="absolute bottom-3 left-4 right-4 z-20 flex items-center justify-between gap-3">
+            <div className="absolute bottom-2.5 sm:bottom-3 left-2.5 sm:left-4 right-2.5 sm:right-4 z-20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1.5 sm:gap-3">
               <span
-                className="font-body text-xs line-clamp-1 px-3 py-1.5 rounded-lg backdrop-blur-md shadow"
+                className="font-body text-[11px] sm:text-xs line-clamp-1 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg backdrop-blur-md shadow max-w-full"
                 style={{
                   background: 'var(--caption-bg)',
                   color: 'var(--caption-color)',
@@ -233,14 +233,14 @@ export default function FeaturedWork({ projects, onSelectProject }: FeaturedWork
 
               {numScreenshots > 1 && (
                 <div
-                  className="flex items-center gap-1.5 backdrop-blur-md px-3 py-1.5 rounded-lg shrink-0"
+                  className="flex items-center gap-1.5 backdrop-blur-md px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg shrink-0 self-end sm:self-auto"
                   style={{
                     background: 'var(--caption-bg)',
                     border: '1px solid var(--glass-border)',
                   }}
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <span className="font-code text-[11px] text-tertiary font-medium mr-1.5">
+                  <span className="font-code text-[10px] sm:text-[11px] text-tertiary font-medium mr-1">
                     {activeThumb + 1}/{numScreenshots}
                   </span>
                   <div className="flex gap-1">
@@ -248,7 +248,7 @@ export default function FeaturedWork({ projects, onSelectProject }: FeaturedWork
                       <button
                         key={s.url + idx}
                         onClick={() => setActiveThumb(idx)}
-                        className={`w-2.5 h-2.5 rounded-full transition-all ${
+                        className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all ${
                           idx === activeThumb ? "bg-tertiary scale-125" : "opacity-40 hover:opacity-80"
                         }`}
                         style={{
@@ -264,7 +264,7 @@ export default function FeaturedWork({ projects, onSelectProject }: FeaturedWork
           </div>
 
           {/* Project Details Panel */}
-          <div className="p-6 sm:p-8 flex flex-col gap-5 relative z-10" style={{ background: 'var(--surface-container)' }}>
+          <div className="p-5 sm:p-8 flex flex-col gap-4 sm:gap-5 relative z-10" style={{ background: 'var(--surface-container)' }}>
             <div className="flex flex-wrap items-center gap-2">
               <span className="px-2.5 py-0.5 rounded-full bg-tertiary/10 border border-tertiary/30 text-tertiary font-code text-[10px] uppercase tracking-wider">
                 {project.category}
@@ -280,10 +280,10 @@ export default function FeaturedWork({ projects, onSelectProject }: FeaturedWork
             </div>
 
             <div>
-              <h3 className="font-display text-2xl sm:text-3xl font-bold text-on-background tracking-tight">
+              <h3 className="font-display text-xl sm:text-3xl font-bold text-on-background tracking-tight">
                 {project.name}
               </h3>
-              <p className="font-body text-sm sm:text-base text-on-surface-variant mt-2 leading-relaxed">
+              <p className="font-body text-xs sm:text-base text-on-surface-variant mt-1.5 leading-relaxed">
                 {project.tagline}
               </p>
             </div>
@@ -293,29 +293,29 @@ export default function FeaturedWork({ projects, onSelectProject }: FeaturedWork
               {project.stack.slice(0, 6).map((tech) => (
                 <span
                   key={tech}
-                  className="px-3 py-1 rounded-full font-code text-[11px] text-on-surface-variant"
+                  className="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full font-code text-[10px] sm:text-[11px] text-on-surface-variant"
                   style={{ background: 'var(--pill-bg)', border: '1px solid var(--pill-border)' }}
                 >
                   {tech}
                 </span>
               ))}
               {project.stack.length > 6 && (
-                <span className="px-2 py-1 rounded-full font-code text-[11px] text-on-surface-variant/50">
+                <span className="px-2 py-0.5 sm:py-1 rounded-full font-code text-[10px] sm:text-[11px] text-on-surface-variant/50">
                   +{project.stack.length - 6} more
                 </span>
               )}
             </div>
 
             {/* Action Bar */}
-            <div className="flex items-center justify-between pt-4" style={{ borderTop: '1px solid var(--divider)' }}>
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-3 sm:pt-4" style={{ borderTop: '1px solid var(--divider)' }}>
               <button
                 onClick={() => onSelectProject(project)}
-                className="px-6 py-2.5 rounded-full bg-primary text-background font-code text-xs uppercase tracking-widest font-semibold transition-all transform hover:scale-[1.02]"
+                className="px-6 py-2.5 rounded-full bg-primary text-background font-code text-xs uppercase tracking-widest font-semibold transition-all transform hover:scale-[1.02] text-center"
               >
                 Read Case Study
               </button>
 
-              <div className="flex items-center gap-4">
+              <div className="flex items-center justify-center gap-4 py-1">
                 {project.github && (
                   <a
                     href={project.github}
